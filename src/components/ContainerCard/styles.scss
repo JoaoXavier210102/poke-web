@@ -1,0 +1,24 @@
+.container {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 16px;
+    row-gap: 16px;
+    margin: 32px 16px;
+}
+
+@media screen and (min-width: 480px) {
+
+    .container {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        grid-template-columns: repeat(8, 1fr);
+        row-gap: 32px;
+        column-gap: 32px;
+        align-self: center;
+        margin: 64px 16px;
+    }
+
+}

@@ -1,0 +1,33 @@
+.pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 16px;
+
+    button:disabled {
+        cursor: not-allowed;
+        background-color: #C4C4C4;
+    }
+
+    button:focus {
+        outline: 0;
+    }
+}
+
+.pagination-button {
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));
+    font-weight: 500;
+    color: white;
+    background-color: #2BB5FF;
+    border-radius: 10px;
+    border: none;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+}

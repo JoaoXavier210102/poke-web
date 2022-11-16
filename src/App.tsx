@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import Card from './components/Card';
+import ContainerCard from './components/ContainerCard';
+import Pagination from './components/Pagination';
+import Modal from './components/Modal';
+import "./global.scss";
+
+//contexts
+import { useOpenModal } from "./providers/openModal";
+import { usePokemons } from "./providers/pokemons";
 
 function App() {
+
+  const { open } = useOpenModal();
+  const { pokemons } = usePokemons();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className={`app ${open ? "showModal" : ""}`}>
+        <Header />
+        <ContainerCard>
+          {pokemons.map((id: number) => (
+            <Card key={id} id={id} />
+          ))}
+        </ContainerCard>
+        {pokemons.length !== 1 && <Pagination />}
+      </div>
+      < Modal />
+    </>
   );
 }
 

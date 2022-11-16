@@ -1,0 +1,177 @@
+$secondary-color: #363636;
+
+
+//front-card
+.card-front-pokemon {
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: opacityAnimation 0.7s ease forwards;
+    height: 100%;
+}
+
+.pokemon {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.pokemonType {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 25px;
+    left: 5px
+}
+
+.name {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    border-radius: 0px 0px 20px 20px;
+    background-color: $secondary-color;
+
+    h3 {
+        text-align: center;
+        color: white;
+        font-weight: 400;
+        font-size: medium;
+    }
+}
+
+//back-card
+.card-back-pokemon {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    h3 {
+        text-align: center;
+        font-weight: 600;
+        font-size: 15px;
+    }
+
+    h4 {
+        font-weight: 200;
+        font-size: 14px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+    }
+
+
+}
+
+.pokemon-types {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+
+//Card flip
+.card {
+    cursor: pointer;
+    width: 100%;
+    height: 100px;
+    perspective: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0);
+    animation: opacityAnimation 0.7s ease forwards;
+}
+
+@keyframes opacityAnimation {
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+.content {
+    width: 100%;
+    height: 100%;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .content {
+    transform: rotateX(180deg);
+    transition: transform 0.5s;
+}
+
+.front,
+.back {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: white;
+    border-radius: 20px;
+    backface-visibility: hidden;
+}
+
+.back {
+    transform: rotateX(180deg);
+}
+
+//loading skeleton
+.loading-card {
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    display: inline-block;
+    width: 150px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+
+    &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: translateX(-100%);
+        background-image: linear-gradient(90deg,
+                rgba(#e0e0e0, 0) 0,
+                rgba(#e0e0e0, 0.2) 20%,
+                rgba(#e0e0e0, 0.5) 60%,
+                rgba(#e0e0e0, 0));
+        animation: shimmer 2s infinite;
+        content: '';
+    }
+
+    @keyframes shimmer {
+        100% {
+            transform: translateX(100%);
+        }
+    }
+}
+
+@media screen and (min-width: 480px) {
+
+    .card{
+        height: 120px;
+    }
+
+}
