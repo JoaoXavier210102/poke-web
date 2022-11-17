@@ -20,7 +20,7 @@ function App() {
         <Header />
         <ContainerCard>
           {pokemons.map((id: number) => (
-            <Card key={id} id={id} />
+            id <= 151 && <Card key={id} id={id} />
           ))}
         </ContainerCard>
         {pokemons.length !== 1 && <Pagination />}

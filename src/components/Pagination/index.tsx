@@ -1,4 +1,4 @@
-import {useMediaQuery} from "react-responsive";
+import { useMediaQuery } from "react-responsive";
 import "./styles.scss";
 
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
@@ -16,13 +16,13 @@ const Pagination = () => {
     };
 
     const handlePrev = () => {
-        pokemons[0] !== 1 && setPokemons(pokemons.map((id: number) =>isMobile ? id - 10 : id - 32));
+        setPokemons(pokemons.map((id: number) => isMobile ? id - 10 : id - 32));
     };
 
     return (
         <div className="pagination">
             <button className="pagination-button" onClick={handlePrev} disabled={pokemons[0] === 1}><BiLeftArrowAlt size={20} /></button>
-            <button className="pagination-button" onClick={handleNext}><BiRightArrowAlt size={20} /></button>
+            <button className="pagination-button" onClick={handleNext} disabled={pokemons[pokemons.length - 1] === 160}><BiRightArrowAlt size={20} /></button>
         </div>
     );
 

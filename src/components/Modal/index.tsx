@@ -46,7 +46,7 @@ const Modal = () => {
             setFields({
                 name: response.name.toUpperCase(),
                 types: response.types.map((type: any) => getIconType(type.type.name)),
-                about: responseStatus.flavor_text_entries.find((item: any) => item.language.name === "en" && item.version.name === "red").flavor_text.replace("\f", " "),
+                about: responseStatus.flavor_text_entries.find((item: any) => item.language.name === "en" && item.version.name === "red").flavor_text.replace("\f", " ") || "",
                 image: response.sprites.front_default,
                 stats: {
                     hp: response.stats[0].base_stat,
@@ -111,10 +111,10 @@ const Modal = () => {
                     </div>
 
                     <div className="next-pokemon">
-                        <button onClick={handleNextPokemon} >
+                        {pokemonModal !== 151 && <button onClick={handleNextPokemon} >
                             {isMobile && <BsFillArrowDownCircleFill size={20} />}
                             <h3>Next Pokemon</h3>
-                        </button>
+                        </button>}
                     </div>
                 </>
             )}

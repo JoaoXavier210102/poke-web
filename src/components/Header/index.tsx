@@ -20,7 +20,7 @@ const Header = () => {
 
         try {
             if (search) {
-                const { data } = await getPokemon(search)
+                const { data } = await getPokemon(search.toLowerCase())
                 setPokemons([data.id])
             } else {
                 handleResetpokemons()
