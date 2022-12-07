@@ -14,7 +14,7 @@ Created of app web with requests for PokeAPI, project for studying and enhanceme
 ## 👨‍💻 Tech Used
 ReatJS, SASS and Typescript.
 
-## 🖥 Demo
+## 🖥 [Demo](https://poke-webts.netlify.app/)
 
 Deploy done with Netlify.
 
